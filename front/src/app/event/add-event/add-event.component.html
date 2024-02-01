@@ -1,0 +1,74 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="container mt-5">
+    <div class="mb-3">
+      <label for="clubName" class="form-label">Club Name:</label>
+      <input type="text" id="clubName" class="form-control" formControlName="clubName" />
+    </div>
+  
+    <div class="mb-3">
+      <label for="startDate" class="form-label">Start Date:</label>
+      <input type="date" id="startDate" class="form-control" formControlName="startDate" />
+    </div>
+  
+    <div class="mb-3">
+      <label for="finishDate" class="form-label">Finish Date:</label>
+      <input type="date" id="finishDate" class="form-control" formControlName="finishDate" />
+    </div>
+  
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" id="category" class="form-control" formControlName="category" />
+    </div>
+  
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+    </div>
+  
+    <div class="mb-3">
+      <div class="form-check">
+        <input type="checkbox" id="isVirtual" class="form-check-input" formControlName="isVirtual" />
+        <label for="isVirtual" class="form-check-label">Is Virtual</label>
+      </div>
+  
+      <div class="form-check">
+        <input type="checkbox" id="isPhysical" class="form-check-input" formControlName="isPhysical" />
+        <label for="isPhysical" class="form-check-label">Is Physical</label>
+      </div>
+    </div>
+  
+    <div formGroupName="location">
+      <div class="mb-3">
+        <label for="state" class="form-label">State:</label>
+        <input type="text" id="state" class="form-control" formControlName="state" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="placeName" class="form-label">Place Name:</label>
+        <input type="text" id="placeName" class="form-control" formControlName="placeName" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="placeLink" class="form-label">Place Link:</label>
+        <input type="text" id="placeLink" class="form-control" formControlName="placeLink" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="locationDescription" class="form-label">Location Description:</label>
+        <textarea id="locationDescription" class="form-control" formControlName="locationDescription"></textarea>
+      </div>
+    </div>
+  
+    <div formGroupName="virtualDetails" class="mb-3">
+      <label for="application" class="form-label">Virtual Application:</label>
+      <input type="text" id="application" class="form-control" formControlName="application" />
+    </div>
+  
+    <div formGroupName="virtualDetails" class="mb-3">
+      <label for="applicationLink" class="form-label">Application Link:</label>
+      <input type="text" id="applicationLink" class="form-control" formControlName="applicationLink" />
+    </div>
+  
+    <button type="submit"  class="btn btn-success">Submit</button>
+  </form>
+  
+  <!-- [disabled]="eventForm.invalid" -->

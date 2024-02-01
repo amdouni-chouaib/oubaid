@@ -1,0 +1,37 @@
+<div class="container mt-3">
+    <h1>Event List</h1>
+    <div *ngFor="let event of events" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ event.clubName }}</h5>
+        <p class="card-text">{{ event.description }}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Start Date:</strong> {{ event.startDate | date }}</li>
+          <li class="list-group-item"><strong>Finish Date:</strong> {{ event.finishDate | date }}</li>
+          <li class="list-group-item"><strong>Category:</strong> {{ event.category }}</li>
+          <li class="list-group-item"><strong>Virtual:</strong> {{ event.isVirtual ? 'Yes' : 'No' }}</li>
+          <li class="list-group-item"><strong>Physical:</strong> {{ event.isPhysical ? 'Yes' : 'No' }}</li>
+        </ul>
+        <div *ngIf="event.isVirtual">
+          <h6 class="mt-3">Virtual Details:</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Application:</strong> {{ event.virtualDetails.application }}</li>
+            <li class="list-group-item"><strong>Application Link:</strong> <a href="{{ event.virtualDetails.applicationLink }}" target="_blank">{{ event.virtualDetails.applicationLink }}</a></li>
+          </ul>
+        </div>
+        <div *ngIf="event.isPhysical">
+          <h6 class="mt-3">Location Details:</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>State:</strong> {{ event.location.state }}</li>
+            <li class="list-group-item"><strong>Place Name:</strong> {{ event.location.placeName }}</li>
+            <li class="list-group-item"><strong>Place Link:</strong> <a href="{{ event.location.placeLink }}" target="_blank">{{ event.location.placeLink }}</a></li>
+            <li class="list-group-item"><strong>Location Description:</strong> {{ event.location.locationDescription }}</li>
+          </ul>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-primary" [routerLink]="['/update/',event._id]">Update</button>
+          <button class="btn btn-danger ml-2" (click)="deleteEvent(event._id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
